@@ -1,0 +1,412 @@
+.homepage .no-data {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+  font-size: 30px;
+  color: #d7b686;
+}
+
+.homepage .statistics {
+  height: 236px;
+  background-color: #343434;
+}
+
+.homepage .statistics .info {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.homepage .statistics .box {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepage .statistics .box h2 {
+  font-size: 54px;
+  font-weight: 600;
+  color: #d7b686;
+  margin: 0;
+}
+
+.homepage .statistics .box p {
+  font-size: 20px;
+  font-weight: 500;
+  color: #d7b686;
+  margin-bottom: 30px;
+}
+
+/* Popular dishes */
+
+.homepage .popular-dishes {
+  height: 580px;
+  background-color: #f8f8ff;
+}
+
+.homepage .popular-dishes .popular-section {
+  margin-top: 45px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage .popular-dishes .title {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.homepage .popular-dishes .cards-frame {
+  margin-top: 45px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.homepage .popular-dishes .card {
+  min-width: 300px;
+  min-height: 430px;
+  cursor: pointer;
+}
+
+.homepage .popular-dishes .card-cover {
+  background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0) 200px
+    ),
+    linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 300px);
+}
+
+/* New dishes */
+
+.homepage .new-dishes {
+  height: 605px;
+  background-color: #f8f8ff;
+}
+
+.homepage .new-dishes .new-section {
+  margin-top: 45px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage .new-dishes .title {
+  font-size: 36px;
+  font-weight: 600;
+  font-weight: 700;
+}
+
+.homepage .new-dishes .cards-frame {
+  margin-top: 45px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.homepage .new-dishes .card {
+  min-width: 290px;
+  min-height: 335px;
+  cursor: pointer;
+}
+
+.homepage .new-dishes .product-sale {
+  position: absolute;
+  margin-top: 10px;
+  z-index: 2;
+  width: 90px;
+  height: 30px;
+  background-color: #ff9200;
+  color: #fff;
+  border-radius: 25px;
+  font-size: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage .new-dishes .product-detail {
+  height: 50%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homepage .new-dishes .info {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homepage .new-dishes .name {
+  width: 65px;
+  font-weight: 500;
+}
+.homepage .new-dishes .price {
+  margin-left: 10px;
+  width: 20px;
+  font-weight: 500;
+}
+
+.homepage .new-dishes .card-cover {
+  background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0) 200px
+    ),
+    linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 300px);
+}
+
+/* Advertisement */
+
+.homepage .advertisement {
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+  transform: perspective(0px);
+  box-shadow: -3px 0px 20px 14px #34343480;
+}
+
+.homepage .advertisement .ads-video {
+  width: 100%;
+  overflow: hidden;
+  transform: scale(1.5);
+}
+
+
+/* ActiveUsers */
+
+.homepage .active-users {
+  height: 605px;
+  background-color: #f8f8ff;
+}
+
+.homepage .active-users .active-section {
+  margin-top: 65px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage .active-users .title {
+  font-size: 36px;
+  font-weight: 600;
+  font-weight: 700;
+}
+
+.homepage .active-users .cards-frame {
+  margin-top: 45px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.homepage .active-users .card {
+  width: 290px;
+  height: 335px;
+  cursor: pointer;
+  background-color: #34343410;
+}
+
+.homepage .active-users .user {
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/** EVENTS **/
+
+.homepage .events-frame {
+  width: 100%;
+  height: 745px;
+  background: #f8f8ff;
+  display: flex;
+}
+
+.homepage .events-frame .category-title {
+  font-family: "Dancing Script";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 43px;
+  padding-top: 20px;
+}
+
+.homepage .events-frame .events-main {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage .events-frame .events-main .events-text {
+  width: auto;
+  height: 70px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepage .events-frame .events-main .prev-next-frame {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 250px;
+  margin: 40px 0 40px 0;
+  height: 25px;
+}
+
+.homepage .events-frame .dot-frame-pagination {
+  position: relative;
+  width: auto;
+  display: flex;
+}
+
+.homepage .events-frame .events-main .events-info {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.homepage .events-frame .events-info .events-info-frame {
+  position: relative;
+  width: 500px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.homepage .events-frame .events-img {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  border-radius: 10px;
+  background-size: cover;
+}
+
+.homepage .events-frame .events-desc {
+  position: absolute;
+  margin-bottom: 7px;
+  padding: 10px;
+  display: flex;
+  width: 90%;
+  height: auto;
+  bottom: 5px;
+  background: #f8f8ff;
+  box-shadow: 0px 40px 30px rgba(25, 25, 46, 0.04);
+  border-radius: 8px;
+}
+
+.homepage .events-frame .events-desc .events-bott {
+  width: 97%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homepage .events-frame .events-desc .events-bott .bott-left {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.homepage .events-frame .bott-left .event-title-speaker {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.homepage .events-frame .event-title-speaker .event-organizator {
+  display: flex;
+  align-items: center;
+}
+
+.homepage .events-frame .event-title-speaker .event-organizator img {
+  width: 20px;
+  margin-right: 10px;
+}
+
+.homepage .events-frame .event-organizator .spec-text-author {
+  font-family: "GT Walsheim Pro";
+  font-style: normal;
+  line-height: 34px;
+  color: #140342;
+}
+
+.homepage .events-frame .bott-left .text-desc {
+  margin-top: 10px;
+  font-family: "GT Walsheim Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 26px;
+  color: #4f547b;
+}
+
+.homepage .events-frame .bott-left .bott-info {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  width: 100%;
+  height: 16px;
+}
+
+.homepage .events-frame .bott-info .bott-info-main {
+  margin-left: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: auto;
+  height: 100%;
+  font-family: "GT Walsheim Pro";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4f547b;
+}
+
+.homepage .events-frame .bott-info .bott-info-main img {
+  margin-right: 10px;
+}
+
+.homepage .events-frame .swiper-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.homepage .events-frame .swiper-pagination-bullet {
+  margin-right: 5px;
+  width: 8px;
+  height: 8px;
+  text-align: center;
+  opacity: 1;
+  background: #f8f8ff;
+  border-radius: 50%;
+}
+
+.homepage .events-frame .swiper-pagination-bullet-active {
+  background: #343434;
+  border-radius: 50%;
+}

@@ -1,0 +1,184 @@
+.orders {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  line-height: 0%;
+}
+
+.orders .order-box {
+  width: 821px;
+  height: 250px;
+  border-radius: 16px;
+  box-shadow: inset 0px 4px 16px 0px rgba(242, 189, 87, 0.04),
+    inset 0px 4px 10px 9px rgb(211, 211, 231),
+    -12px 12px 4px 0px rgb(186, 186, 191);
+  background: rgb(248, 248, 254);
+  margin-bottom: 36px;
+  padding: 16px;
+}
+
+.orders .order-box .order-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 140px;
+  margin-bottom: 12px;
+}
+
+.orders .order-box .order-info > div {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.orders .order-box .order-info .title-dish {
+  font-family: Commissioner;
+  font-size: 22px;
+  font-weight: 500;
+}
+.orders .order-box .order-info .price-box {
+  gap: 8px;
+}
+
+.orders .order-box .order-info .order-img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.orders .payment-box {
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 14px;
+}
+
+.orders .payment-box .payment-title {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+}
+
+.orders .payment-box .btn-box {
+  width: 270px;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 10px;
+}
+
+.orders .payment-box .btn-box .payment-btn {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background: rgb(112, 180, 91);
+  color: white;
+  border-radius: 10px;
+}
+
+.orders .payment-box .btn-box .cancel-btn {
+  border-radius: 10px;
+  background: rgb(210, 182, 140);
+  color: white;
+}
+
+.orders .user-detail .profil {
+  padding-top: 16px;
+  width: 350px;
+  border-radius: 16px;
+  height: 310px;
+  box-shadow: inset 0px 4px 16px 0px rgba(242, 189, 87, 0.04),
+    inset 0px 1px 11px 12px rgb(211, 211, 231),
+    14px 14px 5px 0px rgb(187, 187, 191);
+  background: rgb(248, 248, 254);
+}
+
+.orders .user-detail .profil .user-img img {
+  width: 117px;
+  height: 112px;
+  border-radius: 37px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.orders .user-detail .profil .location {
+  border-top: 2px solid rgb(161, 161, 161);
+  display: flex;
+  align-items: center;
+  width: 90%;
+  justify-content: flex-start;
+  padding: 14px;
+}
+
+.orders .user-detail .profil .user {
+  height: 180px;
+  text-align: center;
+}
+
+.orders .user-detail .profil .user-name {
+  color: rgb(8, 9, 13);
+  font-family: Commissioner;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.orders .user-detail .payment {
+  margin-top: 40px;
+  padding: 24px;
+  border-radius: 16px;
+  height: 280px;
+  width: 350px;
+  box-shadow: inset 0px 4px 16px 0px rgba(242, 189, 87, 0.04),
+    inset 0px 0px 9px 14px rgb(211, 211, 231),
+    14px 14px 4px 0px rgb(188, 188, 191);
+  background: rgb(248, 248, 254);
+  flex-direction: column;
+  align-items: center;
+}
+
+.orders .user-detail .payment .card-info {
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  width: 320px;
+}
+.orders .user-detail .payment input {
+  box-sizing: border-box;
+  border: 1px solid rgb(180, 170, 170);
+  border-radius: 5px;
+  background: rgb(245, 245, 245);
+  color: rgb(119, 119, 119);
+  font-family: Commissioner;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 36px;
+  outline: none;
+  padding-left: 10px;
+}
+.orders .user-detail .payment .inputs input {
+  width: 145px;
+}
+
+.orders .user-detail .payment .cards {
+  flex-direction: row;
+  margin-top: 50px;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.process .payment-box .btn-box .verify-btn {
+  border-radius: 10px;
+  color: white;
+  background: rgb(58, 135, 203);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.process .payment-box .btn-box{
+    width: 285px;
+  }
+
+.process .payment-box {
+    padding-right: 0px;
+  }
+
+.finished .payment-box{
+    justify-content: center;
+}
