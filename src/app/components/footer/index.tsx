@@ -20,12 +20,12 @@ export default function Footer() {
         <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
           <Stack flexDirection={"column"} style={{ width: "340px" }}>
             <Box>
-              <img width={"100px"} src={"/icons/burak.svg"} />
+              <img width={"100px"} height={"40px"} src={"img/logo.png"} />
             </Box>
             <Box className={"foot-desc-txt"}>
-              Focusing on the gourmet Turkish breakfast as well as the youth
-              society, CZN Burak Gurme aims to bring Turkish cuisine back. CZN
-              Burak Gurme creates an illusion with its cuisine.
+              Focusing on the Uzbek breakfast as well as the youth
+              society, Tandir Restaurant aims to bring Uzbek cuisine back.
+              Tandir Restaurant creates an illusion with its cuisine.
             </Box>
             <Box className="sns-context">
               <img src={"/icons/facebook.svg"} />
@@ -37,7 +37,7 @@ export default function Footer() {
           <Stack sx={{ ml: "288px" }} flexDirection={"row"}>
             <Stack>
               <Box>
-                <Box className={"foot-category-title"}>Bo'limlar</Box>
+                <Box className={"foot-category-title"}>Pages</Box>
                 <Box className={"foot-category-link"}>
                   <Link to="/">Home</Link>
                   <Link to="/products">Products</Link>
@@ -56,20 +56,20 @@ export default function Footer() {
                   justifyContent={"space-between"}
                 >
                   <Box flexDirection={"row"} className={"find-us"}>
-                    <span>L.</span>
-                    <div>Downtown, Dubai</div>
+                    <span>Location: </span>
+                    <div>Kimhe, Busan</div>
                   </Box>
                   <Box className={"find-us"}>
-                    <span>P.</span>
-                    <div>+971 4 554 7777</div>
+                    <span>Phone number: </span>
+                    <div>+8210 4554 7777</div>
                   </Box>
                   <Box className={"find-us"}>
-                    <span>E.</span>
-                    <div>devexuz@gmail.com</div>
+                    <span>Email: </span>
+                    <div>tandir.uz@gmail.com</div>
                   </Box>
                   <Box className={"find-us"}>
-                    <span>H.</span>
-                    <div>Visit 24 hours</div>
+                    <span>Work hours: </span>
+                    <div> from 10 am. to 1 am.</div>
                   </Box>
                 </Box>
               </Box>
@@ -81,7 +81,7 @@ export default function Footer() {
           sx={{ mt: "80px" }}
         ></Stack>
         <Stack className={"copyright-txt"}>
-          © Copyright Devex Global, All rights reserved.
+          © Copyright Devex Global,  All rights reserved.
         </Stack>
       </Container>
     </Footers>

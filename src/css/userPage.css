@@ -42,8 +42,7 @@
 	font-family: 'Poppins';
 	font-style: normal;
 	font-weight: 600;
-	font-size: 45px;
-	color: #f8f8ff;
+	font-size: 36px;
 }
 
 .my-page-left .menu-content {
@@ -264,13 +263,16 @@
 }
 
 .user-page .settings .member-media-frame {
-	margin-top: 25px;
 	position: relative;
 	padding: 10px;
 	width: 100%;
 	height: auto;
 	display: flex;
 	border-radius: 5px;
+	background: #f6f2ff;
+    box-shadow: 15px 14px 4px rgba(0, 0, 0, 0.25), inset -1px 0px 16px 13px rgb(24 23 112 / 20%);
+    border-radius: 16px;
+	padding: 20px;
 }
 
 .user-page .settings .member-media-frame .mb-image {
@@ -279,7 +281,7 @@
 	border-radius: 50%;
 }
 
-.user-page .settings .media_change-box {
+.user-page .settings .media-change-box {
 	position: relative;
 	margin-left: 20px;
 	width: auto;

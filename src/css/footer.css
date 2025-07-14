@@ -23,7 +23,7 @@
   font-weight: 600;
   font-size: 24px;
   line-height: 34px;
-  color: #c5c8c9;
+  color: red;
 }
 
 .foot-category-link {
@@ -80,7 +80,7 @@
   color: #e3c08d;
 }
 
-.foot-category-title:after {
+/* .foot-category-title:after {
   display: block;
   content: "";
   border-bottom: solid 2px #d7b686;
@@ -91,4 +91,4 @@
 
 .foot-category-title:hover:after {
   transform: scaleX(1);
-}
+} */

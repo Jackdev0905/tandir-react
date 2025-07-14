@@ -13,6 +13,7 @@ import { CartItem } from "../../../lib/types/search";
 import { useGlobal } from "../../hooks/useGlobal";
 import { Logout } from "@mui/icons-material";
 import { serverApi } from "../../../lib/config";
+import { useEffect, useState } from "react";
 
 interface NavbarProps {
   cartItems: CartItem[];
@@ -42,18 +43,34 @@ export default function OtherNavbar(props: NavbarProps) {
     anchorEl,
   } = props;
 
+  const [isFixed, setIsFixed] = useState(false);
+  
+    useEffect(() => {
+      const handleScroll = () => {
+        setIsFixed(window.scrollY > 500);
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+  
+      return () => {
+        // Clean up the event listener
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
+
   return (
     <div className="other-navbar">
+      <div className="dark"></div>
       <Container className="navbar-container">
-        <Stack className="menu">
+        <Stack className={isFixed ? ' fixed' : 'menu'}>
           <Box>
             <NavLink to={"/"}>
-              <img src="icons/burak.svg" className="brand-logo" />
+              <img src="img/logo.png" className="brand-logo" />
             </NavLink>
           </Box>
           <Stack className="links">
             <Box className={"hover-line"}>
-              <NavLink to={"/"} activeClassName="underline">
+              <NavLink to={"/"}>
                 Home
               </NavLink>
             </Box>

@@ -7,7 +7,15 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
-import { RemoveRedEye, Search } from "@mui/icons-material";
+import {
+  Cake,
+  DinnerDining,
+  KebabDining,
+  LocalBar,
+  RemoveRedEye,
+  RestaurantMenu,
+  Search,
+} from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import { setProducts } from "./slice";
 import { Dispatch } from "@reduxjs/toolkit";
@@ -24,17 +32,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import ProductService from "../../../services/ProductService";
 import { ProductCollection } from "../../../lib/enums/product.enum";
 import { useHistory } from "react-router-dom";
-
-const products = [
-  { productName: "Lavash", imagePath: "/img/lavash.webp" },
-  { productName: "Cutlet", imagePath: "/img/cutlet.webp" },
-  { productName: "Kebab", imagePath: "/img/kebab.webp" },
-  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
-  { productName: "Lavash", imagePath: "/img/lavash.webp" },
-  { productName: "Cutlet", imagePath: "/img/cutlet.webp" },
-  { productName: "Kebab", imagePath: "/img/kebab.webp" },
-  { productName: "Kebab", imagePath: "/img/kebab-fresh.webp" },
-];
+import OurFamily from "./OurFamily";
 
 const actionDispatch = (dispatch: Dispatch) => ({
   setProducts: (data: Product[]) => dispatch(setProducts(data)),
@@ -103,35 +101,15 @@ export default function Products(props: ProductProps) {
   const chooseProductHandler = (id: string) => {
     history.push(`/products/${id}`);
   };
+  console.log(products.length);
+
   return (
     <div className="products">
       <Container>
         <Stack className="main-page">
+          <Box className="title">Tandir Restaurant</Box>
+
           <Stack className="top">
-            <Box className="title">Burak Restaurant</Box>
-            <Box className="search">
-              <input
-                type="search"
-                placeholder="Type here..."
-                value={searchText}
-                onChange={(e) => setSearchText(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === "Enter") searchProductHandler();
-                }}
-              />
-
-              <Button
-                endIcon={<Search />}
-                variant="contained"
-                sx={{ borderRadius: "20px" }}
-                onClick={searchProductHandler}
-              >
-                Search
-              </Button>
-            </Box>
-          </Stack>
-
-          <Stack className="filter" sx={{ mb: "30px", mt: "50px" }}>
             <Stack flexDirection={"row"} justifyContent={"flex-end"}>
               <Button
                 variant="contained"
@@ -167,24 +145,47 @@ export default function Products(props: ProductProps) {
                 VIEWS
               </Button>
             </Stack>
+            <Box className="search">
+              <input
+                type="search"
+                placeholder="Type here..."
+                value={searchText}
+                onChange={(e) => setSearchText(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") searchProductHandler();
+                }}
+              />
+
+              <Button
+                className="search-btn"
+                endIcon={<Search />}
+                variant="contained"
+                sx={{ borderRadius: "20px" }}
+                onClick={searchProductHandler}
+              >
+                Search
+              </Button>
+            </Box>
           </Stack>
 
           <Stack className="collection" flexDirection={"row"}>
-            <Stack className="kind" flexDirection={"row"}>
+            <Stack className="kind" flexDirection={"column-reverse"}>
               <Button
                 variant="contained"
+                className="kind-btn"
                 color={
                   productSearch.productCollection === ProductCollection.OTHER
                     ? "primary"
                     : "secondary"
                 }
-                sx={{ marginLeft: "20px" }}
                 onClick={() => searchCollectionHandler(ProductCollection.OTHER)}
               >
+                <RestaurantMenu />
                 OTHER
               </Button>
               <Button
                 variant="contained"
+                className="kind-btn"
                 color={
                   productSearch.productCollection === ProductCollection.DESERT
                     ? "primary"
@@ -193,44 +194,49 @@ export default function Products(props: ProductProps) {
                 onClick={() =>
                   searchCollectionHandler(ProductCollection.DESERT)
                 }
-                sx={{ marginLeft: "20px" }}
               >
+                {" "}
+                <Cake />
                 DESERT
               </Button>
               <Button
                 variant="contained"
+                className="kind-btn"
                 color={
                   productSearch.productCollection === ProductCollection.DRINK
                     ? "primary"
                     : "secondary"
                 }
-                sx={{ marginLeft: "20px" }}
                 onClick={() => searchCollectionHandler(ProductCollection.DRINK)}
               >
+                <LocalBar />
                 DRINK
               </Button>
               <Button
                 variant="contained"
+                className="kind-btn"
                 color={
                   productSearch.productCollection === ProductCollection.SALAD
                     ? "primary"
                     : "secondary"
                 }
-                sx={{ marginLeft: "20px" }}
                 onClick={() => searchCollectionHandler(ProductCollection.SALAD)}
               >
+                {" "}
+                <DinnerDining />
                 SALAD
               </Button>
               <Button
                 variant="contained"
+                className="kind-btn"
                 color={
                   productSearch.productCollection === ProductCollection.DISH
                     ? "primary"
                     : "secondary"
                 }
-                sx={{ marginLeft: "20px" }}
                 onClick={() => searchCollectionHandler(ProductCollection.DISH)}
               >
+                <KebabDining />
                 DISH
               </Button>
             </Stack>
@@ -293,41 +299,24 @@ export default function Products(props: ProductProps) {
               )}
             </Stack>
           </Stack>
-          <Stack justifyContent={"center"} flexDirection={"row"}>
-            <Pagination
-              count={
-                products.length !== 0
-                  ? productSearch.page + 1
-                  : productSearch.page
-              }
-              color="primary"
-              onChange={paginationHandler}
-            />
-          </Stack>
+          {products.length >= 8 || productSearch.page > 1 ? (
+            <Stack justifyContent={"center"} flexDirection={"row"}>
+              <Pagination
+                count={
+                  products.length !== 0
+                    ? productSearch.page + 1
+                    : productSearch.page
+                }
+                color="primary"
+                onChange={paginationHandler}
+              />
+            </Stack>
+          ) : (
+            ""
+          )}
         </Stack>
+        <OurFamily />
       </Container>
-
-      <Stack className="brand">
-        <Container>
-          <Box color={"primary"} className="text">
-            Our Family Brands
-          </Box>
-          <Stack className="pictures">
-            <Box className="picture">
-              <img src="/img/gurme.webp" alt="brand" />
-            </Box>
-            <Box className="picture">
-              <img src="/img/seafood.webp" alt="brand" />
-            </Box>
-            <Box className="picture">
-              <img src="/img/sweets.webp" alt="brand" />
-            </Box>
-            <Box className="picture">
-              <img src="/img/doner.webp" alt="brand" />
-            </Box>
-          </Stack>
-        </Container>
-      </Stack>
 
       <Stack className="map">
         <Box className="text">Our address</Box>

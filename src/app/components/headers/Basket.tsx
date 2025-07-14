@@ -5,7 +5,7 @@ import Badge from "@mui/material/Badge";
 import Menu from "@mui/material/Menu";
 import CancelIcon from "@mui/icons-material/Cancel";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { CartItem } from "../../../lib/types/search";
 import { Messages, serverApi } from "../../../lib/config";
 import { DeleteForever } from "@mui/icons-material";
@@ -27,8 +27,9 @@ export default function Basket(props: BasketProps) {
     0
   );
   const shippingPrice = itemsPrice < 100 ? 5 : 0;
-  const {authMember, setOrderBuilder} = useGlobal();
+  const { authMember, setOrderBuilder } = useGlobal();
   const history = useHistory();
+  const location = useLocation();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -41,24 +42,23 @@ export default function Basket(props: BasketProps) {
     setAnchorEl(null);
   };
 
-  const pausedOrdersHandler = async () =>{
+  const pausedOrdersHandler = async () => {
     try {
       handleClose();
-      if(!authMember) throw new Error(Messages.error2);
+      if (!authMember) throw new Error(Messages.error2);
 
+      if (location.pathname === "/orders") return;
       const order = new OrderService();
       await order.createOrder(cartItems);
 
-      onDeleteAll();
-      history.push("/orders")
-      setOrderBuilder(new Date())
-
+      // onDeleteAll();
+      history.push("/orders");
+      setOrderBuilder(new Date());
     } catch (err) {
       console.log("error, pausedOrder", err);
-      sweetErrorHandling(err)
-      
+      sweetErrorHandling(err);
     }
-  }
+  };
 
   return (
     <Box className={"hover-line"}>
@@ -167,8 +167,15 @@ export default function Basket(props: BasketProps) {
           </Box>
           {cartItems.length > 0 ? (
             <Box className={"basket-order"}>
-              <span className={"price"}>Total: ${itemsPrice + shippingPrice} ({itemsPrice} + {shippingPrice})</span>
-              <Button onClick={pausedOrdersHandler} startIcon={<ShoppingCartIcon />} variant={"contained"}>
+              <span className={"price"}>
+                Total: ${itemsPrice + shippingPrice} ({itemsPrice} +{" "}
+                {shippingPrice})
+              </span>
+              <Button
+                onClick={pausedOrdersHandler}
+                startIcon={<ShoppingCartIcon />}
+                variant={"contained"}
+              >
                 Order
               </Button>
             </Box>

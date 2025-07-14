@@ -83,7 +83,7 @@ export function Settings() {
       setImage(URL.createObjectURL(file));
     }
   };
-  return (
+  return ( 
     <Box className={"settings"}>
       <Box className={"member-media-frame"}>
         <img src={image} className={"mb-image"} />

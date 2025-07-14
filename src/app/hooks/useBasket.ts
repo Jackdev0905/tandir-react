@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { CartItem } from "../../lib/types/search";
+import { sweetTopSmallSuccessAlert } from "../../lib/sweetAlert";
 
 const useBasket = () => {
   const cartJson: string | null = localStorage.getItem("cartData");
@@ -19,6 +20,7 @@ const useBasket = () => {
 
       setCartItems(cartUpdate);
       localStorage.setItem("cartData", JSON.stringify(cartUpdate));
+      sweetTopSmallSuccessAlert("Successfully added")
     } else {
       const cartUpdate = [...cartItems, { ...input }];
       setCartItems(cartUpdate);

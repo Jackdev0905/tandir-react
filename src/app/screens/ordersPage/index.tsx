@@ -53,6 +53,7 @@ const actionDispatch = (dispatch: Dispatch) => ({
 
 export default function BasicTabs() {
   const [value, setValue] = useState(0);
+  const [image, setImage] = useState<string>("/img/cheque.jpg");
   const { orderBuilder, authMember } = useGlobal();
   const { setPausedOrders, setProcessOrders, setFinishedOrders } =
     actionDispatch(useDispatch());
@@ -105,7 +106,7 @@ export default function BasicTabs() {
             </Tabs>
           </Box>
           <CustomTabPanel value={value} index={0}>
-            <PausedOrders setValue={setValue} />
+            <PausedOrders setValue={setValue} image={image} setImage={setImage}/>
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
             <ProcessOrders setValue={setValue} />

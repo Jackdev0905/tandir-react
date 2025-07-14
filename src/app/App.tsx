@@ -39,6 +39,7 @@ function App() {
       const member = new MemberService();
       await member.logout()
       setAuthMember(null)
+      onDeleteAll()
        await sweetTopSuccessAlert("success", 700)
     } catch (err) {
       console.log("Error", err);
@@ -92,7 +93,7 @@ function App() {
           <HelpPage />
         </Route>
         <Route path="/">
-          <HomePage />
+          <HomePage onAdd={onAdd} />
         </Route>
       </Switch>
       <Footer />

@@ -22,7 +22,7 @@ export default function NewDishes() {
     <div className="new-dishes">
       <Container>
         <Stack className="new-section">
-          <Box className="title">Fresh Menu</Box>
+          <Box className="title">Daily Menu</Box>
           <Stack className="cards-frame">
             <CssVarsProvider>
               {newDishes.length ? (
@@ -34,24 +34,22 @@ export default function NewDishes() {
                       : product.productSize + " SIZE";
                   return (
                     <Card className="card" key={product._id} variant="outlined">
-                      <CardOverflow>
-                        <div className="product-sale">{sizeVolume}</div>
+                      <div className="card-image">
+                        <div className="product-size">{sizeVolume}</div>
                         <AspectRatio ratio={1}>
                           <img src={imagePath} alt={product.productName} />
                         </AspectRatio>
-                      </CardOverflow>
+                      </div>
 
-                      <CardOverflow variant="soft" className="product-detail">
+                     
                         <Stack className="info">
-                          <Stack flexDirection={"row"}>
                             <Typography className="name">
                               {product.productName}
                             </Typography>
-                            <Divider width="2" height="24" bg="#d9d9d9" />
+                           
                             <Typography className="price">
                               {product.productPrice}$
                             </Typography>
-                          </Stack>
                           <Stack>
                             <Typography
                               className="views"
@@ -65,7 +63,7 @@ export default function NewDishes() {
                             </Typography>
                           </Stack>
                         </Stack>
-                      </CardOverflow>
+                      
                     </Card>
                   );
                 })

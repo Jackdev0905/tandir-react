@@ -1,4 +1,12 @@
-import { Box, Button, Container, ListItemIcon, Menu, MenuItem, Stack } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Stack,
+} from "@mui/material";
 import { NavLink } from "react-router-dom";
 import Basket from "./Basket";
 import React, { useEffect, useState } from "react";
@@ -15,10 +23,10 @@ interface NavbarProps {
   onDeleteAll: () => void;
   setSignupOpen: (isOpen: boolean) => void;
   setLoginOpen: (isOpen: boolean) => void;
-  handleLogoutClick:(e:React.MouseEvent<HTMLElement>)=> void;
+  handleLogoutClick: (e: React.MouseEvent<HTMLElement>) => void;
   anchorEl: HTMLElement | null;
-  handleLogoutClose:()=> void;
-  handleLogoutrequest:()=>void
+  handleLogoutClose: () => void;
+  handleLogoutrequest: () => void;
 }
 
 export default function HomeNavbar(props: NavbarProps) {
@@ -33,18 +41,34 @@ export default function HomeNavbar(props: NavbarProps) {
     handleLogoutClose,
     handleLogoutClick,
     handleLogoutrequest,
-    anchorEl
+    anchorEl,
   } = props;
 
   const { authMember } = useGlobal();
 
+  const [isFixed, setIsFixed] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsFixed(window.scrollY > 700);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      // Clean up the event listener
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [window.scrollY]);
+
   return (
     <div className="home-navbar">
+      <div className="dark"></div>
       <Container className="navbar-container">
-        <Stack className="menu">
+        <Stack className={isFixed ? ' fixed' : 'menu'}>
           <Box>
             <NavLink to={"/"}>
-              <img src="icons/burak.svg" className="brand-logo" />
+              <img src="img/logo.png" className="brand-logo" />
             </NavLink>
           </Box>
           <Stack className="links">
@@ -90,6 +114,7 @@ export default function HomeNavbar(props: NavbarProps) {
               <Box>
                 <Button
                   variant="contained"
+                  color="error"
                   className="login-btn"
                   onClick={() => setLoginOpen(true)}
                 >
@@ -164,17 +189,27 @@ export default function HomeNavbar(props: NavbarProps) {
               <Box className="signup">
                 <Button
                   onClick={() => setSignupOpen(true)}
-                  variant="contained"
+                  variant="contained" color="error"
                   className="signup-btn"
                 >
                   Sign-up
                 </Button>
               </Box>
-            ) : null}
+            ) : (
+              <Box className="">
+                <Button
+                  onClick={() => window.location.replace("/products")}
+                  variant="contained" color="error"
+                  className="see-product"
+                >
+                  See Our Menu
+                </Button>
+              </Box>
+            )}
           </Stack>
 
           <Stack className="logo-frame">
-            <img src="/img/logo.webp" alt="" className="frame-img" />
+            <img src="/img/right.webp" alt="" className="frame-img" />
           </Stack>
         </Stack>
       </Container>

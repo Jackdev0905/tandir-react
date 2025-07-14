@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setNewDishes, setPopularDishes, setTopUsers } from "./slice";
 import { Dispatch } from "@reduxjs/toolkit";
-import { Product } from "../../../lib/types/product";
+import { Product, ProductProps } from "../../../lib/types/product";
 import ProductService from "../../../services/ProductService";
 import { ProductCollection } from "../../../lib/enums/product.enum";
 import MemberService from "../../../services/MemberService";
@@ -22,7 +22,9 @@ const actionDispatch = (dispatch: Dispatch) => ({
   setTopUsers: (data: Member[]) => dispatch(setTopUsers(data)),
 });
 
-export default function HomePage() {
+export default function HomePage(props:ProductProps) {
+  const {onAdd} = props
+
   const { setPopularDishes, setNewDishes, setTopUsers } = actionDispatch(
     useDispatch()
   );
@@ -46,11 +48,13 @@ export default function HomePage() {
     product
       .getProducts({
         page: 1,
-        limit: 4,
+        limit: 3,
         order: "createdAt",
         // productCollection: ProductCollection.DISH,
       })
       .then((data) => {
+        console.log("data", data);
+        
         setNewDishes(data);
       })
       .catch((err) => {
@@ -65,7 +69,7 @@ export default function HomePage() {
   return (
     <div className="homepage">
       <Statistics />
-      <PopularDishes />
+      <PopularDishes onAdd={onAdd} />
       <NewDishes />
       <Advertisement />
       <ActiveUsers />

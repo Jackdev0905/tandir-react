@@ -70,29 +70,49 @@
 }
 
 .homepage .popular-dishes .card {
-  min-width: 300px;
-  min-height: 430px;
+  width: 300px;
+  height: 460px;
+  cursor: pointer;
+  border-radius: 18px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+  padding: 0;
+  background: url();
+}
+.homepage .popular-dishes .card .card-image {
+  width: 300px;
+  height: 300px;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  border-radius: 18px 18px 0 0;
+}
+.homepage .popular-dishes .card .card-info{
+  padding: 30px;
+  background-color: aliceblue;
+}
+
+.homepage .popular-dishes .card .card-info .shop-btn{
+  background-color: #50a3a2;
+  border: none;
+  outline: none;
   cursor: pointer;
 }
 
-.homepage .popular-dishes .card-cover {
-  background: linear-gradient(
-      to top,
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0) 200px
-    ),
-    linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 300px);
+.homepage .popular-dishes .card .card-info .shop-btn:hover{
+  background-color: rgb(56, 114, 113)
 }
 
 /* New dishes */
 
 .homepage .new-dishes {
-  height: 605px;
+  height: 500px;
   background-color: #f8f8ff;
 }
 
 .homepage .new-dishes .new-section {
   margin-top: 45px;
+  padding-top: 45px;
   flex-direction: column;
   align-items: center;
 }
@@ -112,14 +132,28 @@
 }
 
 .homepage .new-dishes .card {
-  min-width: 290px;
-  min-height: 335px;
+  min-width: 400px;
+  min-height: 230px;
   cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+  background-color: aliceblue;
+
+  gap: 0;
 }
 
-.homepage .new-dishes .product-sale {
+.homepage .new-dishes .card:hover {
+ transform: scale(1.05);
+}
+
+.homepage .new-dishes .product-size {
   position: absolute;
-  margin-top: 10px;
+  top: 10px;
+  left: 10px;
   z-index: 2;
   width: 90px;
   height: 30px;
@@ -132,28 +166,24 @@
   align-items: center;
 }
 
-.homepage .new-dishes .product-detail {
-  height: 50%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.homepage .new-dishes .card-image {
+  width: 230px;
 }
 
 .homepage .new-dishes .info {
-  width: 100%;
+  width: 170px;
+  padding: 20px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .homepage .new-dishes .name {
-  width: 65px;
+  font-size: 24px;
   font-weight: 500;
 }
 .homepage .new-dishes .price {
-  margin-left: 10px;
-  width: 20px;
+  color: red;
   font-weight: 500;
 }
 
@@ -182,11 +212,10 @@
   transform: scale(1.5);
 }
 
-
 /* ActiveUsers */
 
 .homepage .active-users {
-  height: 605px;
+  height: 500px;
   background-color: #f8f8ff;
 }
 
@@ -211,14 +240,24 @@
 }
 
 .homepage .active-users .card {
-  width: 290px;
+  width: 240px;
   height: 335px;
   cursor: pointer;
-  background-color: #34343410;
+  border: none;
+  
+  background-color: inherit;
+}
+
+.homepage .active-users .card .MuiAspectRatio-content{
+  background-color: inherit;
+}
+
+.homepage .active-users .card img{
+  border-radius: 50%;
 }
 
 .homepage .active-users .user {
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 500;
   text-align: center;
 }

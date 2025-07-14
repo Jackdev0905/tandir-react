@@ -1,29 +1,27 @@
-import { Box, Container, Stack } from "@mui/material";
+import { Box, Button, Container, IconButton, Stack } from "@mui/material";
 import { CssVarsProvider } from "@mui/joy/styles";
-import {
-  Card,
-  CardContent,
-  CardCover,
-  CardOverflow,
-  Typography,
-} from "@mui/joy";
-import { DescriptionOutlined, VisibilityOutlined } from "@mui/icons-material";
+import { Card, Typography } from "@mui/joy";
+import { VisibilityOutlined } from "@mui/icons-material";
 import { createSelector } from "reselect";
 import { retrievePopularDishes } from "./selector";
 import { useSelector } from "react-redux";
 import { serverApi } from "../../../lib/config";
-import { Product } from "../../../lib/types/product";
-
-
+import { Product, ProductProps } from "../../../lib/types/product";
+import { useHistory } from "react-router-dom";
 
 const popularDishesRetriever = createSelector(
   retrievePopularDishes,
   (popularDishes) => ({ popularDishes })
 );
 
-export default function PopularDishes() {
+export default function PopularDishes(props: ProductProps) {
+  const { onAdd } = props;
+  const history = useHistory();
   const { popularDishes } = useSelector(popularDishesRetriever);
-  
+  const chooseProductHandler = (id: string) => {
+    history.push(`/products/${id}`);
+  };
+
   return (
     <div className="popular-dishes">
       <Container>
@@ -31,28 +29,32 @@ export default function PopularDishes() {
           <Box className="title">Popular Dishes</Box>
           <Stack className="cards-frame">
             {popularDishes.length ? (
-              popularDishes.map((product:Product) => {
-                const imagePath = `${serverApi}/${product.productImages[0]}`
+              popularDishes.map((product: Product) => {
+                const imagePath = `${serverApi}/${product.productImages[0]}`;
                 return (
-                  <CssVarsProvider key={product._id}>
-                    <Card className="card">
-                      <CardCover>
-                        <img src={imagePath} alt={product.productName} />
-                      </CardCover>
-                      <CardCover className={"card-cover"} />
-                      <CardContent sx={{ justifyContent: "flex-end" }}>
-                        <Stack>
+                  <CssVarsProvider key={product._id} >
+                    <Card className="card"onClick={()=>chooseProductHandler(product._id)}>
+                      <div
+                        className="card-image"
+                        style={{ background: `url(${imagePath})` }}
+                      ></div>
+                      <Stack className="card-info">
+                        <Stack
+                          flexDirection={"row"}
+                          alignItems={"center"}
+                          justifyContent={"space-between"}
+                        >
                           <Typography
                             level="h2"
                             fontSize={"lg"}
-                            textColor={"#fff"}
+                            textColor={"#000"}
                             mb={1}
                           >
                             {product.productName}
                           </Typography>
                           <Typography
                             fontWeight={"md"}
-                            textColor={"neutral.300"}
+                            textColor={"neutral.500"}
                             sx={{
                               alignItems: "center",
                               display: "flex",
@@ -64,23 +66,39 @@ export default function PopularDishes() {
                             />
                           </Typography>
                         </Stack>
-                      </CardContent>
-                      <CardOverflow
-                        sx={{
-                          display: "flex",
-                          gap: 1.5,
-                          py: 1,
-                          borderTop: "1px solid",
-                          height: "60px",
-                        }}
-                      >
-                        <Typography
-                          startDecorator={<DescriptionOutlined />}
-                          textColor={"neutral.300"}
-                        >
-                          {product.productDesc}
+                        <Typography textColor={"#000"} mb={1}>
+                          {product?.productDesc}
                         </Typography>
-                      </CardOverflow>
+                        <Stack
+                          flexDirection={"row"}
+                          alignItems={"center"}
+                          justifyContent={"space-between"}
+                        >
+                          <Typography
+                            level="h2"
+                            fontSize={"lg"}
+                            textColor={"red"}
+                            mb={1}
+                          >
+                            {product.productPrice} $
+                          </Typography>
+                          <button
+                            className="shop-btn"
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              onAdd({
+                                name: product.productName,
+                                _id: product._id,
+                                quantity: 1,
+                                price: product.productPrice,
+                                image: product.productImages[0],
+                              });
+                            }}
+                          >
+                            <img src="/icons/shopping-cart.svg" alt="" />
+                          </button>
+                        </Stack>
+                      </Stack>
                     </Card>
                   </CssVarsProvider>
                 );
