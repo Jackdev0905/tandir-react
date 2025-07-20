@@ -61,10 +61,6 @@
   align-items: center;
 }
 
-/* .home-navbar .links .login-btn{
-    background-color: #3776CC;
-    color: #f8f8ff;
-} */
 
 .home-navbar .links .user {
   width: 50px;
@@ -226,8 +222,8 @@
 }
 
 .other-navbar .brand-logo {
-  width: 125px;
-  height: 30px;
+  width: 150px;
+  height: 50px;
 }
 
 .other-navbar .links {
@@ -237,10 +233,10 @@
   align-items: center;
 }
 
-.other-navbar .links .login-btn {
+/* .other-navbar .links .login-btn {
   background-color: #3776cc;
   color: #f8f8ff;
-}
+} */
 
 .other-navbar .links .user {
   width: 50px;

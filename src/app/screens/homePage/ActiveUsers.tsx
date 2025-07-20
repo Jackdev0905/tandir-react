@@ -41,11 +41,11 @@ export default function ActiveUsers() {
                         </AspectRatio>
                       </CardOverflow>
 
-                      <CardContent>
-                        <Typography className="user">
+                      <Stack>
+                        <p className="user">
                           {member.memberNick}
-                        </Typography>
-                      </CardContent>
+                        </p>
+                      </Stack>
                     </Card>
                   );
                 })

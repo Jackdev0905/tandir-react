@@ -21,35 +21,39 @@ const TelegramForm: React.FC = () => {
     memberMessage: "",
   });
 
-  const sendMessageToTelegram = async (input: TgMessage) => {
-    const BOT_TOKEN = "1115526529:AAErzbN-KViofQP-VLMgfSmgTjR3crYEh6I"; 
-    const CHAT_ID = "637234125";
-    const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
-    
-    
-    try {
-      if (!authMember) throw new Error(Messages.error2);
-      const response = await fetch(TELEGRAM_API, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          chat_id: CHAT_ID,
-          text: input,
-        }),
-      });
+ const sendMessageToTelegram = async (input: TgMessage) => {
+  const BOT_TOKEN = "1115526529:AAErzbN-KViofQP-VLMgfSmgTjR3crYEh6I";
+  const CHAT_ID = "637234125";
+  const TELEGRAM_API = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
-      if (!response.ok) {
-        throw new Error(`Telegram API error: ${response.status}`);
-      }
+  try {
+    if (!authMember) throw new Error(Messages.error2);
 
-      sweetTopSmallSuccessAlert("Message sent!");
-    } catch (err) {
-      console.error(err);
-      sweetErrorHandling(err);
+    const formattedMessage = `*New Message*\n\n*Name:* ${input.memberNick}\n*Phone:* ${input.memberPhone}\n*Message:*\n${input.memberMessage}`;
+
+    const response = await fetch(TELEGRAM_API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: formattedMessage,
+        parse_mode: "Markdown",
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Telegram API error: ${response.status}`);
     }
-  };
+
+    sweetTopSmallSuccessAlert("Message sent!");
+  } catch (err) {
+    console.error(err);
+    sweetErrorHandling(err);
+  }
+};
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

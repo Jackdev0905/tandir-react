@@ -200,7 +200,7 @@
 
 .homepage .advertisement {
   width: 100%;
-  height: 700px;
+  height: 900px;
   overflow: hidden;
   transform: perspective(0px);
   box-shadow: -3px 0px 20px 14px #34343480;
@@ -269,6 +269,8 @@
   height: 745px;
   background: #f8f8ff;
   display: flex;
+  position: relative;
+  z-index: 0 !important;
 }
 
 .homepage .events-frame .category-title {

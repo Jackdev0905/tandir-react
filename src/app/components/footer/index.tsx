@@ -23,9 +23,9 @@ export default function Footer() {
               <img width={"100px"} height={"40px"} src={"img/logo.png"} />
             </Box>
             <Box className={"foot-desc-txt"}>
-              Focusing on the Uzbek breakfast as well as the youth
-              society, Tandir Restaurant aims to bring Uzbek cuisine back.
-              Tandir Restaurant creates an illusion with its cuisine.
+              Focusing on the Uzbek breakfast as well as the youth society,
+              Tandir Restaurant aims to bring Uzbek cuisine back. Tandir
+              Restaurant creates an illusion with its cuisine.
             </Box>
             <Box className="sns-context">
               <img src={"/icons/facebook.svg"} />
@@ -57,15 +57,24 @@ export default function Footer() {
                 >
                   <Box flexDirection={"row"} className={"find-us"}>
                     <span>Location: </span>
-                    <div>Kimhe, Busan</div>
+                    <a
+                      target="_blank"
+                      href="https://maps.app.goo.gl/LNDpsQC9zsfBA9qW9"
+                    >
+                      Kimhe, Busan
+                    </a>
                   </Box>
                   <Box className={"find-us"}>
                     <span>Phone number: </span>
-                    <div>+8210 4554 7777</div>
+                    <a target="_blank" href="tel: +8210 4554 7777">
+                      +8210 4554 7777
+                    </a>
                   </Box>
                   <Box className={"find-us"}>
                     <span>Email: </span>
-                    <div>tandir.uz@gmail.com</div>
+                    <a target="_blank" href="mailto: tandir.uz@gmail.com">
+                      tandir.uz@gmail.com
+                    </a>
                   </Box>
                   <Box className={"find-us"}>
                     <span>Work hours: </span>
@@ -81,7 +90,7 @@ export default function Footer() {
           sx={{ mt: "80px" }}
         ></Stack>
         <Stack className={"copyright-txt"}>
-          © Copyright Devex Global,  All rights reserved.
+          © Copyright Devex Global, All rights reserved.
         </Stack>
       </Container>
     </Footers>

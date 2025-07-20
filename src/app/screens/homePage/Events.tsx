@@ -1,21 +1,22 @@
-import { Box, Stack } from "@mui/material";
+import { Box, Container, Stack } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay, Navigation, Pagination } from "swiper";
 import { plans } from "../../../lib/data/plans";
+
 
 SwiperCore.use([Autoplay, Navigation, Pagination]);
 
 export default function Events() {
   return (
     <div className={"events-frame"}>
-      <Stack className={"events-main"}>
+      <Container className={"events-main"}>
         <Box className={"events-text"}>
           <span className={"category-title"}>Events</span>
         </Box>
 
         <Swiper
           className={"events-info swiper-wrapper"}
-          slidesPerView={"auto"}
+          slidesPerView={3}
           centeredSlides={true}
           spaceBetween={30}
           navigation={{
@@ -27,13 +28,13 @@ export default function Events() {
             clickable: true,
           }}
           autoplay={{
-            delay: 2000,
+            delay: 1500,
             disableOnInteraction: true,
           }}
         >
           {plans.map((value, number) => {
             return (
-              <SwiperSlide key={number} className={"events-info-frame"}>
+              <SwiperSlide key={number} className={"events-info-frame"} style={{zIndex:2}}>
                 <div className={"events-img"}>
                   <img src={value.img} className={"events-img"} />
                 </div>
@@ -79,7 +80,7 @@ export default function Events() {
             style={{ transform: "rotate(-180deg)" }}
           />
         </Box>
-      </Stack>
+      </Container>
     </div>
   );
 }

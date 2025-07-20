@@ -46,12 +46,12 @@ export default function Basket(props: BasketProps) {
     try {
       handleClose();
       if (!authMember) throw new Error(Messages.error2);
-
+      
       if (location.pathname === "/orders") return;
       const order = new OrderService();
       await order.createOrder(cartItems);
 
-      // onDeleteAll();
+      onDeleteAll();
       history.push("/orders");
       setOrderBuilder(new Date());
     } catch (err) {

@@ -73,6 +73,7 @@ class MemberService {
       const result = await axios.post(url, {}, { withCredentials: true });
       console.log("logout:", {}, result);
       localStorage.removeItem("memberData");
+      localStorage.removeItem("cartData");
     } catch (err) {
       console.log("Error, Logout:", err);
       throw err;

@@ -64,11 +64,12 @@ export default function PausedOrders(props: OrderProps) {
         orderId: orderId,
         orderStatus: OrderStatus.PROCESS,
       };
-      handleSend(order);
+
       const confirm = window.confirm("Do you want to proceed with payment?");
       if (confirm) {
-        const order = new OrderService();
-        await order.updateOrder(input);
+        const newOrder = new OrderService();
+        await newOrder.updateOrder(input);
+        handleSend(order);
         setValue(1);
         setOrderBuilder(new Date());
       }

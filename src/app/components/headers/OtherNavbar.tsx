@@ -112,6 +112,7 @@ export default function OtherNavbar(props: NavbarProps) {
                 <Button
                   variant="contained"
                   className="login-btn"
+                  color="error"
                   onClick={() => setLoginOpen(true)}
                 >
                   Login
