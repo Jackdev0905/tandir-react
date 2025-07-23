@@ -6,11 +6,25 @@ import {
   MemberInput,
   MemberUpdateInput,
 } from "../lib/types/member";
+import { Event } from "../lib/types/event";
 
 class MemberService {
   private readonly path: string;
   constructor() {
     this.path = serverApi;
+  }
+
+  public async getAllEvents(): Promise<Event[]> {
+    try {
+      const url = this.path + "/event/all";
+      const result = await axios.get(url);
+      console.log("result:", result);
+
+      return result.data;
+    } catch (err) {
+      console.log("Error, getTopUsers:", err);
+      throw err;
+    }
   }
 
   public async getTopUsers(): Promise<Member[]> {

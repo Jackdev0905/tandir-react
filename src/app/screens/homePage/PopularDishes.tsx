@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { serverApi } from "../../../lib/config";
 import { Product, ProductProps } from "../../../lib/types/product";
 import { useHistory } from "react-router-dom";
+import { sweetTopSmallSuccessAlert } from "../../../lib/sweetAlert";
 
 const popularDishesRetriever = createSelector(
   retrievePopularDishes,
@@ -86,6 +87,7 @@ export default function PopularDishes(props: ProductProps) {
                             className="shop-btn"
                             onClick={(e) => {
                               e.stopPropagation();
+                              sweetTopSmallSuccessAlert("Successfully added", 700);
                               onAdd({
                                 name: product.productName,
                                 _id: product._id,

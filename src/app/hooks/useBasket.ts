@@ -20,7 +20,7 @@ const useBasket = () => {
 
       setCartItems(cartUpdate);
       localStorage.setItem("cartData", JSON.stringify(cartUpdate));
-      sweetTopSmallSuccessAlert("Successfully added")
+      sweetTopSmallSuccessAlert("Successfully added", 700)
     } else {
       const cartUpdate = [...cartItems, { ...input }];
       setCartItems(cartUpdate);

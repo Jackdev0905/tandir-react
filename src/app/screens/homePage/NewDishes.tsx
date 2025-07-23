@@ -16,7 +16,6 @@ const newDishesRetriever = createSelector(retrieveNewDishes, (newDishes) => ({
 
 export default function NewDishes() {
   const { newDishes } = useSelector(newDishesRetriever);
-  console.log("newDishes:", newDishes);
 
   return (
     <div className="new-dishes">

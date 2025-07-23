@@ -183,7 +183,6 @@ export default function HomeNavbar(props: NavbarProps) {
             <Box className="main-text">
               World's most <br /> delicious Cousine
             </Box>
-            <Box className="desc">The choice, not the choice</Box>
             <Box className="time">24 hours service</Box>
             {!authMember ? (
               <Box className="signup">
