@@ -9,6 +9,7 @@ import { CssBaseline, ThemeProvider } from "@mui/material";
 import { BrowserRouter as Router } from "react-router-dom";
 import theme from "./app/MaterialTheme";
 import ContextProvider from "./app/context/ContextProvider";
+import { SocketProvider } from "./app/context/SocketContext";
 
 const container = document.getElementById("root")!;
 const root = createRoot(container);
@@ -17,13 +18,15 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ContextProvider>
-        <ThemeProvider theme={theme}>
-          <Router>
-            <App />
-          </Router>
+        <SocketProvider>
+          <ThemeProvider theme={theme}>
+            <Router>
+              <App />
+            </Router>
 
-          <CssBaseline />
-        </ThemeProvider>
+            <CssBaseline />
+          </ThemeProvider>
+        </SocketProvider>
       </ContextProvider>
     </Provider>
   </React.StrictMode>

@@ -116,11 +116,14 @@ export default function PausedOrders(props: OrderProps) {
       let itemsText = "";
 
       for (const [itemName, item] of Object.entries(order.orderItems)) {
-        itemsText += `🍽 ${order.productData.map((ele: any) => {
-          if (ele._id === item.productId) return ele.productName;
-        })} - ${item.itemQuantity} pcs x ${item.itemPrice}$ = ${
-          item.itemQuantity * item.itemPrice
-        }$\n`;
+        const product = order.productData.find(
+          (ele: any) => ele._id === item.productId
+        );
+        const productName = product?.productName || "Unknown Item";
+
+        itemsText += `🍽 ${productName} - ${item.itemQuantity} pcs x ${
+          item.itemPrice
+        }$ = ${item.itemQuantity * item.itemPrice}$\n`;
       }
 
       return `🛒 New Order!
@@ -132,6 +135,7 @@ export default function PausedOrders(props: OrderProps) {
 
 ${itemsText.trim()}`;
     };
+
     const formData = new FormData();
     formData.append("chat_id", CHAT_ID);
     formData.append("photo", file);
